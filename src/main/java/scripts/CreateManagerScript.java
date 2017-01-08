@@ -18,7 +18,7 @@ public class CreateManagerScript {
         manager.setSurname("Ferhatovic");
         manager.setEmail("root");
         manager.setPassword(Hasher.toMD5("toor"));
-        userRepo.createUser(manager);
+        userRepo.create(manager);
         DefaultSessionFactory.close();
     }
 }

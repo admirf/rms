@@ -2,6 +2,7 @@ package model;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Comparator;
 import java.util.Date;
 
 /**
@@ -117,5 +118,14 @@ public class User implements Serializable {
 
     public void setMonthlyPay(double monthlyPay) {
         this.monthlyPay = monthlyPay;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if(obj == null) return false;
+        if(obj.getClass() != this.getClass()) return false;
+
+        User o = (User) obj;
+        return o.getID() == this.getID();
     }
 }

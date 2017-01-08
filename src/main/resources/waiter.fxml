@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.collections.FXCollections?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2">
+
+  <top>
+    <VBox>
+      <HBox style="-fx-background-color: lightgray" alignment="CENTER">
+        <padding>
+          <Insets bottom="10" top="10"></Insets>
+        </padding>
+        <Label fx:id="messageLabel" text="Menu" style="-fx-font-size: 16"></Label>
+      </HBox>
+      <HBox alignment="CENTER">
+        <padding>
+          <Insets top="8" bottom="8"></Insets>
+        </padding>
+        <TextField promptText="Search..." maxWidth="60" minWidth="60"></TextField>
+      </HBox>
+    </VBox>
+
+  </top>
+
+  <center>
+    <ListView fx:id="menuListView">
+
+    </ListView>
+  </center>
+
+  <bottom>
+    <HBox spacing="16" alignment="CENTER" style="-fx-background-color: lightgray">
+      <padding>
+        <Insets top="12" bottom="12"></Insets>
+      </padding>
+      <Label text="Select Table"></Label>
+      <ComboBox fx:id="comboBox">
+        <items>
+          <FXCollections fx:factory="observableArrayList">
+            <Integer fx:value="0"></Integer>
+            <Integer fx:value="1"></Integer>
+            <Integer fx:value="2"></Integer>
+            <Integer fx:value="3"></Integer>
+            <Integer fx:value="4"></Integer>
+            <Integer fx:value="5"></Integer>
+            <Integer fx:value="6"></Integer>
+            <Integer fx:value="7"></Integer>
+            <Integer fx:value="8"></Integer>
+            <Integer fx:value="9"></Integer>
+            <Integer fx:value="10"></Integer>
+          </FXCollections>
+        </items>
+      </ComboBox>
+      <Button fx:id="revokeButton" style="-fx-background-color: darkslategrey" textFill="aliceblue" text="Revoke"></Button>
+    </HBox>
+  </bottom>
+</BorderPane>
+

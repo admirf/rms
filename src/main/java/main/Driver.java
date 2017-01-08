@@ -24,8 +24,10 @@ public class Driver extends Application {
         Parent root = loader.load();
         LoginController controller = loader.getController();
         controller.setStage(stage);
+        stage.setMinWidth(640);
+        stage.setMinHeight(480);
         stage.setTitle("RMS");
-        stage.setScene(new Scene(root, 300, 275));
+        stage.setScene(new Scene(root, 500, 500));
         stage.show();
 
         stage.setOnCloseRequest(e -> {

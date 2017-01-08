@@ -10,7 +10,7 @@
         <property name="hibernate.connection.driver_class">
             com.mysql.jdbc.Driver
         </property>
-       <!-- <property name="hbm2ddl.auto">
+        <!-- <property name="hbm2ddl.auto">
             create
         </property> -->
         <property name="hibernate.connection.url">

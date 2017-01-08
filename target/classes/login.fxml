@@ -1,40 +1,70 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.net.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-
-<GridPane fx:controller="controllers.LoginController"
-          xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10"
-          styleClass="root">
-    <padding><Insets top="25" right="25" bottom="25" left="25"/></padding>
-
-    <Text id="welcome-text" text="RMS"
-          GridPane.columnIndex="0" GridPane.rowIndex="0"
-          GridPane.columnSpan="2"/>
-
-    <Label text="E-Mail:"
-           GridPane.columnIndex="0" GridPane.rowIndex="1"/>
-
-    <TextField fx:id="email"
-            GridPane.columnIndex="1" GridPane.rowIndex="1"/>
-
-    <Label text="Password:"
-           GridPane.columnIndex="0" GridPane.rowIndex="2"/>
-
-    <PasswordField fx:id="passwordField"
-                   GridPane.columnIndex="1" GridPane.rowIndex="2"/>
-
-    <HBox spacing="10" alignment="bottom_right"
-          GridPane.columnIndex="1" GridPane.rowIndex="4">
-        <Button text="Sign In" onAction="#login"/>
-    </HBox>
-
-    <Text fx:id="actiontarget"
-          GridPane.columnIndex="1" GridPane.rowIndex="6"/>
-
-
-</GridPane>
+<AnchorPane fx:controller="controllers.LoginController" id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="392.9998779296875" prefWidth="362.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2">
+  <children>
+    <GridPane id="GridPane" prefHeight="392.9998779296875" prefWidth="362.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <children>
+        <ImageView fitHeight="272.0" fitWidth="272.0" opacity="0.39" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="0" GridPane.valignment="CENTER">
+          <image>
+            <Image url="rest1.png" />
+          </image>
+          <GridPane.margin>
+            <Insets fx:id="x2" />
+          </GridPane.margin>
+        </ImageView>
+      </children>
+      <columnConstraints>
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+      </columnConstraints>
+      <rowConstraints>
+        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+      </rowConstraints>
+    </GridPane>
+    <GridPane prefHeight="392.9998779296875" prefWidth="362.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <children>
+        <PasswordField  fx:id="passwordField" alignment="CENTER" prefHeight="30.0" prefWidth="200.0" promptText="Password" GridPane.columnIndex="0" GridPane.rowIndex="3">
+          <GridPane.margin>
+            <Insets left="80.0" right="80.0" fx:id="x1" />
+          </GridPane.margin>
+        </PasswordField>
+        <TextField  id="UserField" alignment="CENTER" fx:id="email" prefHeight="30.0" prefWidth="200.0" promptText="Username" GridPane.columnIndex="0" GridPane.margin="$x1" GridPane.rowIndex="2" />
+        <Button onAction="#login" fx:id="SignButton" contentDisplay="CENTER" disable="false" mnemonicParsing="false" prefHeight="40.0" prefWidth="90.0" text="Sign in" textAlignment="CENTER" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+          <GridPane.margin>
+            <Insets left="150.0" right="150.0" />
+          </GridPane.margin>
+        </Button>
+        <Label fx:id="messageLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="53.0" prefWidth="173.0" text="WELCOME!" textAlignment="LEFT" textOverrun="ELLIPSIS" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.margin="$x2" GridPane.rowIndex="0" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+          <font>
+            <Font name="Microsoft JhengHei Light" size="20.0" />
+          </font>
+        </Label>
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="BLACK" height="392.9998779296875" opacity="0.29" stroke="BLACK" strokeMiterLimit="10.0" strokeType="INSIDE" width="14.0" GridPane.columnIndex="0" GridPane.columnSpan="2147483647" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.margin="$x2" GridPane.rowIndex="4" GridPane.rowSpan="2147483647" GridPane.valignment="BOTTOM" GridPane.vgrow="ALWAYS" />
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="BLACK" height="392.9998779296875" opacity="0.29" stroke="BLACK" strokeMiterLimit="10.0" strokeType="INSIDE" width="14.0" GridPane.columnIndex="0" GridPane.columnSpan="2147483647" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="0" GridPane.rowSpan="2147483647" GridPane.valignment="TOP" GridPane.vgrow="ALWAYS">
+          <GridPane.margin>
+            <Insets fx:id="x2" />
+          </GridPane.margin>
+        </Rectangle>
+      </children>
+      <columnConstraints>
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+      </columnConstraints>
+      <rowConstraints>
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      </rowConstraints>
+    </GridPane>
+  </children>
+</AnchorPane>

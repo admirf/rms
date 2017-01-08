@@ -6,8 +6,9 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.text.Text;
+import javafx.scene.control.Label;
 import javafx.stage.Stage;
+import model.Job;
 import model.User;
 import repository.DefaultSessionFactory;
 import repository.UserRepository;
@@ -24,9 +25,10 @@ import repository.UserRepository;
  * ili metodom stavljate @FXML anotaciju
  */
 
-public class LoginController {
+public class LoginController implements Controller {
     private UserRepository userRepository;
     private Stage stage;
+    private User user;
 
     @FXML
     private TextField email;
@@ -35,29 +37,46 @@ public class LoginController {
     private PasswordField passwordField;
 
     @FXML
-    private Text actiontarget;
+    private Label messageLabel;
 
+    @Override
     public void setStage(Stage stage) {
         this.stage = stage;
     }
 
+    @Override
+    public void setUser(User u) { this.user = u; }
+
     @FXML
     public void login() {
         try {
-            User user = userRepository.readUserByCredentials(email.getText(), passwordField.getText());
+            setUser(userRepository.readUserByCredentials(email.getText(), passwordField.getText()));
             System.out.println(user.getName());
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/manager.fxml"));
-            ManagerController managerController = new ManagerController();
-            managerController.setUser(user);
-            managerController.setStage(stage);
-            loader.setController(managerController);
+            Controller controller = null;
+            String fxmlUrl = "";
+            switch (user.getJob()) {
+                case Job.MANAGER:
+                    controller = new ManagerController();
+                    fxmlUrl = "/manager.fxml";
+                    break;
+                case Job.WAITER:
+                    controller = new WaiterController();
+                    fxmlUrl = "/waiter.fxml";
+                    stage.setMinWidth(300);
+                    stage.setMaxWidth(400);
+                    break;
+            }
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlUrl));
+            controller.setUser(user);
+            controller.setStage(stage);
+            loader.setController(controller);
             Parent root = loader.load();
-            stage.setScene(new Scene(root, 600, 400));
+            stage.setScene(new Scene(root));
 
         }
         catch (Exception e) {
             e.printStackTrace();
-            actiontarget.setText("Could not log in.");
+            messageLabel.setText("Could not log in.");
         }
     }
 

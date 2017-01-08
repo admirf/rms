@@ -1,7 +1,10 @@
 package repository;
 
+import model.Item;
+import model.Order;
 import model.User;
 import org.hibernate.SessionFactory;
+import model.Tables;
 import org.hibernate.cfg.Configuration;
 
 /**
@@ -19,6 +22,9 @@ public class DefaultSessionFactory {
             instance = new Configuration()
                     .configure()
                     .addAnnotatedClass(User.class)
+                    .addAnnotatedClass(Item.class)
+                    .addAnnotatedClass(Order.class)
+                    .addAnnotatedClass(Tables.class)
                     .buildSessionFactory();
         }
 

@@ -13,49 +13,133 @@
     <schema id="7" parent="1" name="sys"/>
     <schema id="8" parent="1" name="world"/>
     <table id="9" parent="2" name="hibernate_sequence"/>
-    <table id="10" parent="2" name="user"/>
-    <column id="11" parent="9" name="next_val">
+    <table id="10" parent="2" name="item"/>
+    <table id="11" parent="2" name="table_order"/>
+    <table id="12" parent="2" name="tables"/>
+    <table id="13" parent="2" name="user"/>
+    <column id="14" parent="9" name="next_val">
       <Position>1</Position>
       <DataType>bigint(20)|0</DataType>
     </column>
-    <column id="12" parent="10" name="ID">
+    <column id="15" parent="10" name="ID">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="13" parent="10" name="birthDate">
+    <column id="16" parent="10" name="cost">
       <Position>2</Position>
-      <DataType>datetime|0</DataType>
+      <DataType>double|0</DataType>
     </column>
-    <column id="14" parent="10" name="email">
+    <column id="17" parent="10" name="imgUrl">
       <Position>3</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="15" parent="10" name="monthlyPay">
+    <column id="18" parent="10" name="name">
+      <Position>4</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="19" parent="10" name="price">
       <Position>5</Position>
       <DataType>double|0</DataType>
     </column>
-    <column id="16" parent="10" name="name">
-      <Position>6</Position>
-      <DataType>varchar(255)|0</DataType>
+    <key id="20" parent="10" name="PRIMARY">
+      <ColNames>ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="21" parent="11" name="ID">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="17" parent="10" name="password">
-      <Position>7</Position>
-      <DataType>varchar(255)|0</DataType>
+    <column id="22" parent="11" name="quantity">
+      <Position>2</Position>
+      <DataType>double|0</DataType>
     </column>
-    <column id="18" parent="10" name="started">
-      <Position>8</Position>
-      <DataType>datetime|0</DataType>
+    <column id="23" parent="11" name="item_ID">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
     </column>
-    <column id="19" parent="10" name="surname">
-      <Position>9</Position>
-      <DataType>varchar(255)|0</DataType>
-    </column>
-    <column id="20" parent="10" name="job">
+    <column id="24" parent="11" name="table_ID">
       <Position>4</Position>
       <DataType>int(11)|0</DataType>
     </column>
-    <key id="21" parent="10" name="PRIMARY">
+    <index id="25" parent="11" name="FK2hrpfv8ggdch4kmbvn1gvj2d4">
+      <ColNames>item_ID</ColNames>
+    </index>
+    <index id="26" parent="11" name="FK80y14nfg4nslu72px2kns4e7v">
+      <ColNames>table_ID</ColNames>
+    </index>
+    <key id="27" parent="11" name="PRIMARY">
+      <ColNames>ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="28" parent="11" name="FK2hrpfv8ggdch4kmbvn1gvj2d4">
+      <ColNames>item_ID</ColNames>
+      <RefSchemaName>rms</RefSchemaName>
+      <RefTableName>item</RefTableName>
+      <RefColNames>ID</RefColNames>
+    </foreign-key>
+    <foreign-key id="29" parent="11" name="FK80y14nfg4nslu72px2kns4e7v">
+      <ColNames>table_ID</ColNames>
+      <RefSchemaName>rms</RefSchemaName>
+      <RefTableName>tables</RefTableName>
+      <RefColNames>ID</RefColNames>
+    </foreign-key>
+    <column id="30" parent="12" name="ID">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="31" parent="12" name="name">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="32" parent="12" name="occupied">
+      <Position>3</Position>
+      <DataType>bit(1)|0</DataType>
+    </column>
+    <key id="33" parent="12" name="PRIMARY">
+      <ColNames>ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="34" parent="13" name="ID">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="35" parent="13" name="birthDate">
+      <Position>2</Position>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="36" parent="13" name="email">
+      <Position>3</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="37" parent="13" name="job">
+      <Position>4</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="38" parent="13" name="monthlyPay">
+      <Position>5</Position>
+      <DataType>double|0</DataType>
+    </column>
+    <column id="39" parent="13" name="name">
+      <Position>6</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="40" parent="13" name="password">
+      <Position>7</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="41" parent="13" name="started">
+      <Position>8</Position>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="42" parent="13" name="surname">
+      <Position>9</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <key id="43" parent="13" name="PRIMARY">
       <ColNames>ID</ColNames>
       <Primary>1</Primary>
     </key>
