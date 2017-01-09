@@ -17,10 +17,10 @@
             jdbc:mysql://localhost/rms
         </property>
         <property name="hibernate.connection.username">
-            root
+
         </property>
         <property name="hibernate.connection.password">
-            fision-fusion007
+
         </property>
 
 
