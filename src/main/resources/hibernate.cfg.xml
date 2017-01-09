@@ -11,16 +11,16 @@
             com.mysql.jdbc.Driver
         </property>
         <!-- <property name="hbm2ddl.auto">
-            create
+            update
         </property> -->
         <property name="hibernate.connection.url">
             jdbc:mysql://localhost/rms
         </property>
         <property name="hibernate.connection.username">
-
+            root
         </property>
         <property name="hibernate.connection.password">
-
+            fision-fusion007
         </property>
 
 

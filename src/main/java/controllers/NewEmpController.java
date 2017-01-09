@@ -15,6 +15,7 @@ import model.User;
 import repository.DefaultSessionFactory;
 import repository.UserRepository;
 import utility.Hasher;
+import utility.Logger;
 
 import java.security.NoSuchAlgorithmException;
 import java.text.ParseException;
@@ -22,7 +23,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
- * Created by admir on 26.12.2016..
+ * Controller Class for the creation of new employees(users)
  */
 public class NewEmpController implements Controller {
 
@@ -48,6 +49,9 @@ public class NewEmpController implements Controller {
     private TextField passwordField;
 
     @FXML
+    private TextField salaryField;
+
+    @FXML
     private ComboBox<String> comboBox;
 
     @FXML
@@ -70,6 +74,15 @@ public class NewEmpController implements Controller {
         addBtn.setOnAction(event -> {
             if(isUserDataValid()) {
                 try {
+
+                    double salary = 800;
+
+                    try {
+                        salary = Double.parseDouble(salaryField.getText());
+                    }
+                    catch (NumberFormatException e) {
+                    }
+
                     setUser(new User());
                     user.setName(nameField.getText());
                     user.setSurname(surnameField.getText());
@@ -77,7 +90,7 @@ public class NewEmpController implements Controller {
                     user.setEmail(emailField.getText());
                     user.setBirthDate(simpleDateFormat.parse(yearBirthField.getText()));
                     user.setStarted(new Date());
-                    user.setMonthlyPay(800);
+                    user.setMonthlyPay(salary);
                     user.setJob(comboBox.getSelectionModel().getSelectedIndex() + 1);
 
                     UserRepository userRepository = new UserRepository(DefaultSessionFactory.getInstance());
@@ -96,10 +109,10 @@ public class NewEmpController implements Controller {
 
                 }
                 catch (NoSuchAlgorithmException e) {
-
+                    e.printStackTrace(Logger.getInstance().getWriter());
                 }
                 catch (ParseException e) {
-
+                    e.printStackTrace(Logger.getInstance().getWriter());
                 }
                 catch(Exception e) {
                     messageLabel.setText("We are sorry. Something went wrong.");

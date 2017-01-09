@@ -1,14 +1,11 @@
 package repository;
 
-import model.Item;
-import model.Order;
-import model.User;
+import model.*;
 import org.hibernate.SessionFactory;
-import model.Tables;
 import org.hibernate.cfg.Configuration;
 
 /**
- * Created by admir on 10.12.2016..
+ * SessionFactory singleton class used to return the isntance of the properly configured session factory
  */
 public class DefaultSessionFactory {
     private static SessionFactory instance;
@@ -25,6 +22,8 @@ public class DefaultSessionFactory {
                     .addAnnotatedClass(Item.class)
                     .addAnnotatedClass(Order.class)
                     .addAnnotatedClass(Tables.class)
+                    .addAnnotatedClass(Notification.class)
+                    .addAnnotatedClass(Payment.class)
                     .buildSessionFactory();
         }
 

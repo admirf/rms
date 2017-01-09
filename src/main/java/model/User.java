@@ -6,24 +6,8 @@ import java.util.Comparator;
 import java.util.Date;
 
 /**
- * Created by admir on 09.12.2016..
+ * User entity (POJO)
  */
-
-/**
- * Na ovaj fazon se prave tabele u bazi,
- * napravite klasu i dodajete anotacije
- * kada koristimo orm, klase koje su mapirane sa tabelama se zovu entity
- * zato da oznacimo neku klasu kao tabelu stavljamo @Entity anotaciju
- * sta onda dalje?
- * Pravite sve fieldove koje zelite da klasa ima i oznacite ih kao kolone
- * nikad nemojte zaboraviti ID kolonu oznacit sa @Id i @GeneratedValue anotacijom,
- * to morate stavit da bi hibernate prepozno da je to id
- * sve ostale fieldove samo stavite @Column anotaciju to je potpuno dovoljno
- * ima jos raznih anotacija za razne opcije, ali ako budu negdje potrebne
- * ja cu ih dodat vi se ne brinite, ja i kad napravit fieldove (instance varijable)
- * zovite kako hocete generisite sa intellij gettere i settere
- */
-
 
 @Entity
 @Table(name = "USER")

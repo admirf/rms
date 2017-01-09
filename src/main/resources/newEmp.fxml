@@ -25,21 +25,23 @@
         </Label>
         <TextField id="NameField" fx:id="nameField" prefHeight="49.0" prefWidth="237.0" GridPane.columnIndex="1" GridPane.rowIndex="0" />
         <TextField id="SurnameField" fx:id="surnameField" prefHeight="49.0" prefWidth="300.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-        <TextField id="BirthdateField" fx:id="yearBirthField" prefHeight="49.0" prefWidth="300.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+        <TextField promptText="1/1/2000 e.g." id="BirthdateField" fx:id="yearBirthField" prefHeight="49.0" prefWidth="300.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
 
         <Label alignment="CENTER" font="$x1" minHeight="18.0" prefHeight="31.0" prefWidth="196.0" text="Surname:" underline="true" GridPane.columnIndex="0" GridPane.rowIndex="1" />
-        <Label alignment="CENTER" font="$x1" prefHeight="29.0" prefWidth="195.9998779296875" text="Role:" underline="true" GridPane.rowIndex="5" />
+        <Label alignment="CENTER" font="$x1" prefHeight="29.0" prefWidth="195.9998779296875" text="Role:" underline="true" GridPane.rowIndex="6" />
+        <Label alignment="CENTER" font="$x1" prefHeight="29.0" prefWidth="195.9998779296875" text="Salary:" underline="true" GridPane.rowIndex="5" />
         <Label alignment="CENTER" font="$x1" prefHeight="39.0" prefWidth="210.0" text="Password:" underline="true" GridPane.columnIndex="0" GridPane.rowIndex="4" />
         <Label alignment="CENTER" font="$x1" prefHeight="30.0" prefWidth="182.0" text="Year of Birth:" underline="true" GridPane.columnIndex="0" GridPane.rowIndex="2" />
         <Label alignment="CENTER" font="$x1" prefHeight="30.0" prefWidth="196.0" text="Email:" underline="true" GridPane.columnIndex="0" GridPane.rowIndex="3" />
         <TextField id="EmailFiled" fx:id="emailField" prefHeight="46.0" prefWidth="285.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
         <TextField id="PasswordField" fx:id="passwordField" prefHeight="46.0" prefWidth="285.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-        <Button fx:id="addBtn" mnemonicParsing="false" prefHeight="30.0" prefWidth="54.0" text="ADD" GridPane.columnIndex="1" GridPane.rowIndex="6">
+        <TextField promptText="800" fx:id="salaryField" prefHeight="46.0" prefWidth="285.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+        <Button fx:id="addBtn" mnemonicParsing="false" prefHeight="30.0" prefWidth="54.0" text="ADD" GridPane.columnIndex="1" GridPane.rowIndex="7">
           <GridPane.margin>
             <Insets left="100.0" />
           </GridPane.margin>
         </Button>
-        <ComboBox fx:id="comboBox" minHeight="19.0" prefHeight="30.0" prefWidth="280.0" promptText="Select one" GridPane.columnIndex="1" GridPane.rowIndex="5">
+        <ComboBox fx:id="comboBox" minHeight="19.0" prefHeight="30.0" prefWidth="280.0" promptText="Select one" GridPane.columnIndex="1" GridPane.rowIndex="6">
           <items>
             <FXCollections fx:factory="observableArrayList">
               <String fx:value= "Receptionist" />
@@ -48,7 +50,7 @@
             </FXCollections>
           </items>
         </ComboBox>
-        <Label GridPane.columnSpan="2" alignment="CENTER"  textFill="crimson" GridPane.columnIndex="0" GridPane.halignment="CENTER" fx:id="messageLabel" GridPane.rowIndex="7"  ></Label>
+        <Label GridPane.columnSpan="2" alignment="CENTER"  textFill="crimson" GridPane.columnIndex="0" GridPane.halignment="CENTER" fx:id="messageLabel" GridPane.rowIndex="8"  ></Label>
       </children>
       <columnConstraints>
         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -59,6 +61,7 @@
         <RowConstraints maxHeight="47.0" minHeight="10.0" prefHeight="27.0" vgrow="SOMETIMES" />
         <RowConstraints maxHeight="47.0" minHeight="10.0" prefHeight="27.0" vgrow="SOMETIMES" />
         <RowConstraints maxHeight="47.0" minHeight="10.0" prefHeight="27.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="46.0" minHeight="10.0" prefHeight="26.0" vgrow="SOMETIMES" />
         <RowConstraints maxHeight="46.0" minHeight="10.0" prefHeight="26.0" vgrow="SOMETIMES" />
         <RowConstraints maxHeight="46.0" minHeight="10.0" prefHeight="26.0" vgrow="SOMETIMES" />
         <RowConstraints maxHeight="46.0" minHeight="10.0" prefHeight="26.0" vgrow="SOMETIMES" />

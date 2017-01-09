@@ -11,7 +11,7 @@
             com.mysql.jdbc.Driver
         </property>
         <!-- <property name="hbm2ddl.auto">
-            create
+            update
         </property> -->
         <property name="hibernate.connection.url">
             jdbc:mysql://localhost/rms

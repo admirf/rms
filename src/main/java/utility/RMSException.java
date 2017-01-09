@@ -1,7 +1,7 @@
 package utility;
 
 /**
- * Created by admir on 10.12.2016..
+ * Dummy exception template for future improvement
  */
 public class RMSException extends Exception {
     private String message;

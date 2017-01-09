@@ -3,7 +3,7 @@ package model;
 import javax.persistence.*;
 
 /**
- * Created by admir on 05.01.2017..
+ * Item entity
  */
 
 @Entity

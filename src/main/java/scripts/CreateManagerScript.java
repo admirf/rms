@@ -8,7 +8,7 @@ import utility.Hasher;
 import java.security.NoSuchAlgorithmException;
 
 /**
- * Created by admir on 10.12.2016..
+ * A script used to create the root user aka Manager
  */
 public class CreateManagerScript {
     public static void main(String[] args) throws NoSuchAlgorithmException {

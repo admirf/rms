@@ -19,7 +19,7 @@ import javax.swing.*;
 import java.beans.EventHandler;
 
 /**
- * Created by admir on 08.01.2017..
+ * Class that represents the ListCell used in the Menu ListView of the Waiter Controller
  */
 public class MenuItemCell extends ListCell<Item> {
     private OrderRepository orderRepository;
@@ -34,6 +34,9 @@ public class MenuItemCell extends ListCell<Item> {
     private Item lastItem;
     private WaiterController controller;
 
+    /**
+     * Constructor there everything gets assembled
+     */
     public MenuItemCell() {
         super();
         hbox = new HBox();
@@ -90,10 +93,20 @@ public class MenuItemCell extends ListCell<Item> {
         });
     }
 
+    /**
+     * Method used to set a reference to the controller from which it is being used
+     * This is needed so we can access the showMessage method from the WaiterController class
+     * @param controller
+     */
     public void setWaiterController(WaiterController controller) {
         this.controller = controller;
     }
 
+    /**
+     * Method inherited from ListCell, defines how our view should be drawn
+     * @param item
+     * @param empty
+     */
     @Override
     protected void updateItem(Item item, boolean empty) {
         super.updateItem(item, empty);

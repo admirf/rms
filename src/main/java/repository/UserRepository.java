@@ -8,6 +8,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.NotYetImplementedException;
 import utility.Hasher;
+import utility.Logger;
 import utility.RMSException;
 
 import java.util.ArrayList;
@@ -35,24 +36,6 @@ public class UserRepository implements IRepository<User> {
      */
     @Override
     public Integer create(User user) {
-
-        // Obratite paznju na ovo, ovo je vjerovatno najbitnija stvar
-        // rad sa bazom mada cu za to ja vecinom bit zaduzen
-        // najbitnije dvije klase za rad sa bazom u hibernate
-        // su Session i Transaction
-        // Session je neka vrsta lake konekcije s bazom
-        // a transakcija je bilo koja promjena u bazi
-        // sve manipulacije podataka u bazi idu na ovaj fazon znaci
-        // napravite session sa session factory (stvorite konekciju)
-        // spucate try catch i u njemu zapocnete transakciju
-        // u catch tj. u slucaju da je doslo do errora
-        // provjerite da li je transakcija idalje null
-        // jer ako nije znaci da je doslo do errora i da se desila
-        // neka transakcija(promjena), a posto je error zelimo da
-        // sve vratimo na staro pa pozovemo rollback() metodu na transakciji
-        // i isprintate stack trace standardno
-        // jako bitno je da zatvorite session u finally block
-
         Session session = sessionFactory.openSession();
         Transaction transaction = null;
         Integer id = null;
@@ -63,7 +46,7 @@ public class UserRepository implements IRepository<User> {
         }
         catch (HibernateException e) {
             if(transaction != null) transaction.rollback();
-            e.printStackTrace();
+            e.printStackTrace(Logger.getInstance().getWriter());
         }
         finally {
             session.close();
@@ -88,7 +71,7 @@ public class UserRepository implements IRepository<User> {
         }
         catch (HibernateException e) {
             if(transaction != null) transaction.rollback();
-            e.printStackTrace();
+            e.printStackTrace(Logger.getInstance().getWriter());
         }
         finally {
             session.close();
@@ -152,6 +135,9 @@ public class UserRepository implements IRepository<User> {
         return true;
     }
 
+    /**
+     * @return Returns all users from database in a List
+     */
     public List<User> readAllUsers() {
         List<User> li = null;
         Session session = sessionFactory.openSession();

@@ -7,7 +7,7 @@ import repository.TablesRepository;
 import java.security.NoSuchAlgorithmException;
 
 /**
- * Created by admir on 08.01.2017..
+ * A script to create the 11 tables of our restaurant
  */
 public class CreateTablesScript {
     public static void main(String[] args) throws NoSuchAlgorithmException {

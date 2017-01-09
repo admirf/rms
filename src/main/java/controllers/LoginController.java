@@ -12,17 +12,11 @@ import model.Job;
 import model.User;
 import repository.DefaultSessionFactory;
 import repository.UserRepository;
+import utility.Logger;
 
 
 /**
- * Created by admir on 09.12.2016..
- */
-
-/**
- * Za svaki izgled view tj. fxml file pravite controller file
- * gdje ide sva logika vezana za taj view
- * sta god da zelite da povezete iz fxml fajla sa nekim objektom
- * ili metodom stavljate @FXML anotaciju
+ * Handles the initial login of a user
  */
 
 public class LoginController implements Controller {
@@ -65,6 +59,16 @@ public class LoginController implements Controller {
                     stage.setMinWidth(300);
                     stage.setMaxWidth(400);
                     break;
+                case Job.RECEPTIONIST:
+                    controller = new ReceptionistController();
+                    fxmlUrl = "/TABLES.fxml";
+                    stage.setMaxWidth(600);
+                    stage.setMaxHeight(480);
+                    break;
+                case Job.COOK:
+                    controller = new CookController();
+                    fxmlUrl = "/chef.fxml";
+                    break;
             }
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlUrl));
             controller.setUser(user);
@@ -75,7 +79,7 @@ public class LoginController implements Controller {
 
         }
         catch (Exception e) {
-            e.printStackTrace();
+            e.printStackTrace(Logger.getInstance().getWriter());
             messageLabel.setText("Could not log in.");
         }
     }

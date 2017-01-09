@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.Set;
 
 /**
- * Created by admir on 08.01.2017..
+ * Tables entity
  */
 @Entity
 @Table(name="TABLES")
@@ -54,4 +54,15 @@ public class Tables {
     public void setName(int name) {
         this.name = name;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Tables tables = (Tables) o;
+
+        return ID == tables.ID;
+    }
+
 }

@@ -20,11 +20,12 @@
         </padding>
         <Label fx:id="messageLabel" text="Menu" style="-fx-font-size: 16"></Label>
       </HBox>
-      <HBox alignment="CENTER">
+      <HBox alignment="CENTER" spacing="8">
         <padding>
           <Insets top="8" bottom="8"></Insets>
         </padding>
-        <TextField promptText="Search..." maxWidth="60" minWidth="60"></TextField>
+        <TextField fx:id="searchField" promptText="Search..." maxWidth="60" minWidth="60"></TextField>
+        <Button fx:id="searchButton" text="Search"></Button>
       </HBox>
     </VBox>
 

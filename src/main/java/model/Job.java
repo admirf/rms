@@ -1,7 +1,7 @@
 package model;
 
 /**
- * Created by admir on 09.12.2016..
+ * Self explanatory
  */
 public class Job {
     public final static int MANAGER = 0;

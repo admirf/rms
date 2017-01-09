@@ -12,18 +12,18 @@ import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import model.Item;
 import model.Job;
+import model.Payment;
 import model.User;
 import repository.DefaultSessionFactory;
 import repository.ItemRepository;
+import repository.PaymentRepository;
 import repository.UserRepository;
 import ui.Misc;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Timer;
-import java.util.TimerTask;
+
+import java.util.*;
 
 /**
- * Created by admir on 10.12.2016..
+ * Manager controller class, handles all logic regarding to the manager view which contains three tabs
  */
 public class ManagerController implements Controller {
 
@@ -43,7 +43,7 @@ public class ManagerController implements Controller {
     private Label role;
 
     @FXML
-    private Label pass;
+    private Label salary;
 
     @FXML
     private ListView<User> list;
@@ -87,6 +87,15 @@ public class ManagerController implements Controller {
     @FXML
     private ImageView itemImage;
 
+    @FXML
+    private Label totalCost;
+
+    @FXML
+    private Label totalIncome;
+
+    @FXML
+    private Label profit;
+
     private List<User> li;
     private ObservableList<User> obsList;
     private ObservableList<Item> itemList;
@@ -97,6 +106,7 @@ public class ManagerController implements Controller {
     private Stage stage;
     private UserRepository userRepository;
     private ItemRepository itemRepository;
+    private PaymentRepository paymentRepository;
 
     public void setUser(User user) {
         this.user = user;
@@ -109,7 +119,7 @@ public class ManagerController implements Controller {
         name.setText(selectedUser.getName() + " " + selectedUser.getSurname());
         id.setText("" + selectedUser.getID());
         role.setText(Job.toString[selectedUser.getJob()]);
-        pass.setText(selectedUser.getPassword());
+        salary.setText("" + selectedUser.getMonthlyPay());
     }
 
     /**
@@ -132,6 +142,7 @@ public class ManagerController implements Controller {
 
         userRepository = new UserRepository(DefaultSessionFactory.getInstance());
         itemRepository = new ItemRepository(DefaultSessionFactory.getInstance());
+        paymentRepository = new PaymentRepository(DefaultSessionFactory.getInstance());
         li = userRepository.readAllUsers();
         selectedUser = null;
         selectedItem = null;
@@ -287,6 +298,29 @@ public class ManagerController implements Controller {
             }
 
         });
+
+        loadMoneyFlow();
+    }
+
+
+
+    public void loadMoneyFlow() {
+        Calendar calendar = new GregorianCalendar();
+        calendar.setTime(new Date());
+        calendar.add(Calendar.DAY_OF_YEAR, -30);
+
+        List<Payment> payments = paymentRepository.readAllPaymentsByDate(calendar.getTime());
+        List<User> users = userRepository.readAllUsers();
+
+        double sum =  0;
+        for(Payment payment: payments) sum += payment.getValue();
+
+        double salaries = 0;
+        for(User u: users) salaries += u.getMonthlyPay();
+
+        totalCost.setText("" + salaries);
+        totalIncome.setText("" + sum);
+        profit.setText("" + (sum - salaries));
     }
 
 
@@ -302,7 +336,6 @@ public class ManagerController implements Controller {
             finally {
                 Platform.runLater(() -> menuCreationMessageLabel.setText("Menu Creation"));
             }
-
         });
 
         th.start();

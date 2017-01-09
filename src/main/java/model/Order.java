@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 /**
- * Created by admir on 08.01.2017..
+ * Order entity
  */
 
 @Entity
@@ -56,5 +56,12 @@ public class Order implements Serializable {
 
     public void setQuantity(double quantity) {
         this.quantity = quantity;
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        if(object == null || object.getClass() != this.getClass()) return false;
+        Order o = (Order) object;
+        return o.getID() == this.getID();
     }
 }

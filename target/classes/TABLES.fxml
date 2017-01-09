@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2">
+  <children>
+    <ImageView fitHeight="400.0" fitWidth="400.0" layoutX="0.0" layoutY="0.0" pickOnBounds="true" preserveRatio="true">
+      <image>
+        <Image url="mala.jpg" />
+      </image>
+    </ImageView>
+    <ImageView fitHeight="399.0" fitWidth="532.0000207083566" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <image>
+        <Image url="mala.jpg" />
+      </image>
+    </ImageView>
+    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="BLACK" height="26.0" layoutX="200.0" layoutY="0.0" stroke="BLACK" strokeType="INSIDE" width="200.0" />
+    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="344.0" layoutY="26.0" stroke="BLACK" strokeType="INSIDE" width="8.0" AnchorPane.leftAnchor="0.0" />
+
+    <Rectangle userData="0" fx:id="rect0" arcHeight="5.0" arcWidth="5.0" height="50.0" layoutX="43.0" layoutY="288.0" stroke="BLACK" strokeType="INSIDE" width="72.0">
+      <fill>
+        <Color blue="0.160" green="1.000" red="0.000" fx:id="x1" />
+      </fill>
+    </Rectangle>
+    <Rectangle userData="1" fx:id="rect1" arcHeight="5.0" arcWidth="5.0" fill="$x1" height="50.0" layoutX="43.0" layoutY="93.0" stroke="BLACK" strokeType="INSIDE" width="72.0" />
+    <Rectangle userData="2" fx:id="rect2" arcHeight="5.0" arcWidth="5.0" fill="$x1" height="50.0" layoutX="186.0" layoutY="288.0" stroke="BLACK" strokeType="INSIDE" width="72.0" />
+    <Rectangle userData="3" fx:id="rect3" arcHeight="5.0" arcWidth="5.0" fill="$x1" height="50.0" layoutX="338.0" layoutY="288.0" stroke="BLACK" strokeType="INSIDE" width="72.0" />
+    <Rectangle userData="4" fx:id="rect4" arcHeight="5.0" arcWidth="5.0" fill="$x1" height="50.0" layoutX="492.0" layoutY="288.0" stroke="BLACK" strokeType="INSIDE" width="72.0" />
+    <Rectangle userData="5" fx:id="rect5" arcHeight="5.0" arcWidth="5.0" fill="$x1" height="50.0" layoutX="186.0" layoutY="93.0" stroke="BLACK" strokeType="INSIDE" width="72.0" />
+    <Rectangle userData="6" fx:id="rect6" arcHeight="5.0" arcWidth="5.0" fill="$x1" height="50.0" layoutX="338.0" layoutY="93.0" stroke="BLACK" strokeType="INSIDE" width="72.0" />
+    <Rectangle userData="7" fx:id="rect7" arcHeight="5.0" arcWidth="5.0" fill="$x1" height="50.0" layoutX="492.0" layoutY="93.0" stroke="BLACK" strokeType="INSIDE" width="72.0" />
+    <Circle userData="8" fx:id="circ0" fill="$x1" layoutX="146.0" layoutY="211.0" radius="40.0" stroke="BLACK" strokeType="INSIDE" />
+    <Circle userData="9" fx:id="circ1" fill="$x1" layoutX="452.0" layoutY="211.0" radius="40.0" stroke="BLACK" strokeType="INSIDE" />
+    <Circle userData="10" fx:id="circ2" fill="$x1" layoutX="298.0" layoutY="211.0" radius="40.0" stroke="BLACK" strokeType="INSIDE" />
+
+
+    <Text layoutX="43.0" layoutY="378.0" scaleX="1.873787914048561" scaleY="1.437836514929026" strokeType="OUTSIDE" strokeWidth="0.0" text="FREE" />
+    <Text layoutX="497.0" layoutY="379.0" scaleX="1.786744077028961" scaleY="1.5328914587073854" strokeType="OUTSIDE" strokeWidth="0.0" text="OCCUPIED" />
+    <Circle fill="$x1" layoutX="106.0" layoutY="371.0" radius="11.0" stroke="BLACK" strokeType="INSIDE" />
+    <Circle fill="RED" layoutX="441.0" layoutY="374.0" radius="11.0" stroke="BLACK" strokeType="INSIDE" />
+  </children>
+</AnchorPane>

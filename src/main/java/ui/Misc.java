@@ -6,11 +6,13 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import utility.Logger;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 
 /**
- * Created by admir on 26.12.2016..
+ * Utility class containing miscellaneous methods
  */
 public class Misc {
 
@@ -31,11 +33,11 @@ public class Misc {
         try {
             Misc.<NewEmpController> openWindow(NewEmpController.class, new Stage(), "newEmp.fxml");
         } catch (IllegalAccessException e) {
-            e.printStackTrace();
+            e.printStackTrace(Logger.getInstance().getWriter());
         } catch (IOException e) {
-            e.printStackTrace();
+            e.printStackTrace(Logger.getInstance().getWriter());
         } catch (InstantiationException e) {
-            e.printStackTrace();
+            e.printStackTrace(Logger.getInstance().getWriter());
         }
 
 

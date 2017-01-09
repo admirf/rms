@@ -7,6 +7,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.NotYetImplementedException;
+import utility.Logger;
 
 import java.io.Serializable;
 import java.util.List;
@@ -20,6 +21,10 @@ public class ItemRepository implements IRepository<Item> {
 
     public ItemRepository(SessionFactory sessionFactory) { this.sessionFactory = sessionFactory; }
 
+    /**
+     * @param item
+     * @return ID of newly created Item entity
+     */
     @Override
     public Integer create(Item item) {
         Session session = sessionFactory.openSession();
@@ -32,7 +37,7 @@ public class ItemRepository implements IRepository<Item> {
         }
         catch (HibernateException e) {
             if(transaction != null) transaction.rollback();
-            e.printStackTrace();
+            e.printStackTrace(Logger.getInstance().getWriter());
         }
         finally {
             session.close();
@@ -40,6 +45,9 @@ public class ItemRepository implements IRepository<Item> {
         return id;
     }
 
+    /**
+     * @return List of all items from database
+     */
     public List<Item> readAllItems() {
         List<Item> li = null;
         Session session = sessionFactory.openSession();
@@ -63,6 +71,10 @@ public class ItemRepository implements IRepository<Item> {
         throw new NotYetImplementedException();
     }
 
+    /**
+     * @param item Item to be updated
+     * @return ID of updated item
+     */
     @Override
     public Integer update(Item item) {
         Session session = sessionFactory.openSession();
@@ -79,6 +91,10 @@ public class ItemRepository implements IRepository<Item> {
         return null;
     }
 
+    /**
+     * @param i
+     * @return true if deletion was successful, false otherwise
+     */
     @Override
     public boolean delete(Integer i) {
         Session session = sessionFactory.openSession();

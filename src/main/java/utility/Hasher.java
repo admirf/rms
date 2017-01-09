@@ -4,7 +4,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 /**
- * Created by admir on 10.12.2016..
+ * Utility class used to has a string into md5
  */
 public class Hasher {
     public static String toMD5(String str) throws NoSuchAlgorithmException {
